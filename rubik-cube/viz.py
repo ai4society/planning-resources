@@ -45,8 +45,8 @@ fond.pack(side=LEFT)
 
 ##################################################################### Functions ############################################################################
 global path_pddl
-path_pddl_model = '3x3/model_problem.pddl'
-path_pddl = '3x3/sample_test.pddl'
+path_pddl_model = '3x3/problems/model_problem.pddl'
+path_pddl = '3x3/problems/sample_test.pddl'
 
 shutil.copy(path_pddl_model,path_pddl)
 
@@ -353,7 +353,7 @@ def actions_from_plan():
 def random_state():
 
     print("--- Shuffling the cube ---")
-    for i in range(10):
+    for i in range(7):
         func = random.choice(actions_list)
         func()
 
@@ -385,15 +385,57 @@ def fast_downward():
     print('----- Running Fast-Downward Planner ------')
     os.chdir('../downward')
     print(os.getcwd())
-    print(os.system('./fast-downward.py --plan-file ../rubiks_cube/3x3/sample_test_downward.txt ../rubiks_cube/3x3/cube_3x3.pddl ../rubiks_cube/3x3/sample_test.pddl --search "astar(ff())"'))
+    print(os.system('./fast-downward.py --plan-file ../rubiks_cube/3x3/plans/sample_test_downward.txt ../rubiks_cube/3x3/cube_3x3.pddl ../rubiks_cube/3x3/problems/sample_test.pddl --search "astar(ff())"'))
     os.chdir('../rubiks_cube')
 
 def fast_forward():
     print('----- Running Fast-Forward Planner ------')
     os.chdir('../FF')
     print(os.getcwd())
-    print(os.system('./ff -o ../rubiks_cube/3x3/cube_3x3.pddl -f ../rubiks_cube/3x3/sample_test.pddl > ../rubiks_cube/3x3/sample_test_ff.txt'))
+    print(os.system('./ff -o ../rubiks_cube/3x3/cube_3x3.pddl -f ../rubiks_cube/3x3/problems/sample_test.pddl > ../rubiks_cube/3x3/plans/sample_test_ff.txt'))
     os.chdir('../rubiks_cube')
+
+
+def choose_plan():
+    choice_of_planner = input('Chose the planner to solve the planner (0/1): ')
+
+    if choice_of_planner == 0:
+        fast_downward()
+        print('\n ------ Solution Found ------ \n')
+        global plan_actions 
+        plan_actions = []
+        with open('3x3/plans/sample_test_downward.txt', 'r') as plan_file:
+            for line in plan_file:
+                if 'cost' in line:
+                    break
+                
+                action = re.search('\((.*) \)',line)
+                plan_actions.append(action.group(1).capitalize())   
+
+    if choice_of_planner == 1:
+        fast_forward()
+        print('\n ------ Solution Found ------ \n')
+        global plan_actions 
+        plan_actions = []
+        flag = 0
+        with open('3x3/plans/sample_test_ff.txt', 'r') as plan_file:
+            for line in plan_file:
+                
+                if 'step' in line:
+                    flag = 1
+                
+                if 'time spent' in line:
+                    break
+                
+                if flag == 1:
+                    if ':' not in line:
+                        break
+                    action = line.split(':')[-1][1:-1]
+                    print(str(action.capitalize().capitalize()))
+                    plan_actions.append(action.capitalize().capitalize())  
+                
+
+
 
 fermer = Button(fenetre, text="Exit", bg='SlateGray1' , bd= 10 , activebackground ='red',command=fenetre.destroy)
 fermer_fenetre = fond.create_window(40, 20, window=fermer)
@@ -412,30 +454,11 @@ random_state()
 to_pddl()
 write_to_pddl()
 
-fast_downward()
-# fast_forward()
-
-
-print('\n --- Solution Plan File options ---\n')
+print('\n ----- Available Planners -----\n')
 print('0: Fast-Downward \n1: Fast-Forward\n')
+choose_plan()
 
-choice_of_planner = input('Chose the plan file (0/1): ')
+th = threading.Thread(target=actions_from_plan)
+th.start()
 
-if choice_of_planner == 0:
-    
-    global plan_actions 
-    plan_actions = []
-    with open('3x3/sample_test_downward.txt', 'r') as plan_file:
-        for line in plan_file:
-            if 'cost' in line:
-                break
-            
-            action = re.search('\((.*) \)',line)
-            plan_actions.append(action.group(1).capitalize())
-    
-    th = threading.Thread(target=actions_from_plan)
-    th.start()
-
-    fenetre.mainloop()
-
-
+fenetre.mainloop() 

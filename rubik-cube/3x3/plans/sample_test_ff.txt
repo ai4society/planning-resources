@@ -8,20 +8,20 @@ problem 'SAMPLE_TEST' defined
 
 
 
-Cueing down from goal distance:    5 into depth [1]
+Cueing down from goal distance:    3 into depth [1]
                                    1            [1]
                                    0            
 
 ff: found legal plan as follows
 
-step    0: R
-        1: DREV
+step    0: RREV
+        1: F
      
 
-time spent:    0.01 seconds instantiating 12 easy, 0 hard action templates
+time spent:    0.02 seconds instantiating 12 easy, 0 hard action templates
                0.00 seconds reachability analysis, yielding 2160 facts and 12 actions
-               0.01 seconds creating final representation with 2160 relevant facts
-               0.17 seconds building connectivity graph
-               0.04 seconds searching, evaluating 5 states, to a max depth of 1
-               0.23 seconds total time
+               0.00 seconds creating final representation with 2160 relevant facts
+               0.21 seconds building connectivity graph
+               0.03 seconds searching, evaluating 4 states, to a max depth of 1
+               0.26 seconds total time
 

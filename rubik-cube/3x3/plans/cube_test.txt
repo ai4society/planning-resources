@@ -20,57 +20,59 @@ advancing to distance :    2
 ff: found legal plan as follows
 
 step    0: F
-        1: D
+        1: DREV
         2: FREV
         3: UREV
         4: F
-        5: DREV
+        5: D
         6: FREV
-        7: B
+        7: BREV
         8: U
-        9: BREV
+        9: B
        10: UREV
-       11: L
-       12: BREV
-       13: BREV
-       14: LREV
+       11: LREV
+       12: B
+       13: B
+       14: L
        15: BREV
-       16: L
+       16: LREV
        17: BREV
-       18: LREV
-       19: BREV
+       18: L
+       19: B
        20: FREV
-       21: D
+       21: DREV
        22: B
-       23: DREV
+       23: D
        24: F
-       25: F
-       26: D
-       27: BREV
+       25: BREV
+       26: BREV
+       27: F
        28: DREV
-       29: BREV
-       30: FREV
-       31: D
+       29: B
+       30: D
+       31: B
        32: FREV
        33: DREV
-       34: B
+       34: FREV
        35: D
-       36: F
+       36: BREV
        37: DREV
-       38: BREV
-       39: U
+       38: F
+       39: D
        40: B
-       41: DREV
+       41: U
        42: BREV
-       43: UREV
+       43: D
        44: B
-       45: D
+       45: UREV
+       46: BREV
+       47: DREV
      
 
 time spent:    0.00 seconds instantiating 12 easy, 0 hard action templates
                0.00 seconds reachability analysis, yielding 2160 facts and 12 actions
                0.01 seconds creating final representation with 2160 relevant facts
-               0.14 seconds building connectivity graph
-              83.96 seconds searching, evaluating 68753 states, to a max depth of 3
-              84.11 seconds total time
+               0.19 seconds building connectivity graph
+              54.09 seconds searching, evaluating 47348 states, to a max depth of 3
+              54.29 seconds total time
 
