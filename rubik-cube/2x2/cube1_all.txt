@@ -1,0 +1,40 @@
+
+ff: parsing domain file
+domain 'CUBE' defined
+ ... done.
+ff: parsing problem file
+problem 'CUBE1' defined
+ ... done.
+
+
+
+Cueing down from goal distance:    9 into depth [1]
+                                   8            [1]
+                                   7            [1]
+                                   5            [1][2][3][4]
+                                   4            [1][2][3]
+                                   1            [1]
+                                   0            
+
+ff: found legal plan as follows
+
+step    0: D
+        1: UREV
+        2: UREV
+        3: LREV
+        4: BREV
+        5: D
+        6: B
+        7: FREV
+        8: D
+        9: F
+       10: DREV
+     
+
+time spent:    0.01 seconds instantiating 12 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 1728 facts and 12 actions
+               0.01 seconds creating final representation with 1728 relevant facts
+               0.16 seconds building connectivity graph
+               0.03 seconds searching, evaluating 118 states, to a max depth of 4
+               0.21 seconds total time
+

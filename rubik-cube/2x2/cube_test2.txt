@@ -1,0 +1,65 @@
+
+ff: parsing domain file
+domain 'CUBE' defined
+ ... done.
+ff: parsing problem file
+problem 'CUBE_TEST' defined
+ ... done.
+
+
+
+Cueing down from goal distance:   10 into depth [1]
+                                   9            [1]
+                                   8            [1][2]
+                                   7            [1][2][3]
+                                   6            [1][2][3]
+                                   5            [1][2][3][4][5]
+                                   4            [1][2][3]
+                                   3            [1]
+                                   2            [1][2]
+
+Enforced Hill-climbing failed !
+switching to Best-first Search now.
+
+advancing to distance :   10
+                           9
+                           8
+                           7
+                           6
+                           5
+                           4
+                           3
+                           1
+                           0
+
+ff: found legal plan as follows
+
+step    0: BREV
+        1: U
+        2: R
+        3: FREV
+        4: DREV
+        5: UREV
+        6: RREV
+        7: D
+        8: B
+        9: LREV
+       10: R
+       11: DREV
+       12: L
+       13: FREV
+       14: DREV
+       15: F
+       16: RREV
+       17: B
+       18: L
+       19: BREV
+     
+
+time spent:    0.00 seconds instantiating 12 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 1728 facts and 12 actions
+               0.01 seconds creating final representation with 1728 relevant facts
+               0.16 seconds building connectivity graph
+               0.11 seconds searching, evaluating 1141 states, to a max depth of 5
+               0.28 seconds total time
+

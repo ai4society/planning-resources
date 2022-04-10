@@ -1,0 +1,27 @@
+(define
+    (problem cube2)
+    (:domain cube)
+    (:objects Y W B G O R)
+    (:init
+        (cube1 B R W)
+        (cube2 O B Y)
+        (cube3 W G R)
+        (cube4 R Y G)
+        (cube5 G O Y)
+        (cube6 B W O)
+        (cube7 R B Y)
+        (cube8 O G W)
+    )
+    (:goal
+        (and
+            (cube1 W B R)
+            (cube2 Y B R)
+            (cube3 W G R)
+            (cube4 Y G R)
+            (cube5 W B O)
+            (cube6 Y B O)
+            (cube7 W G O)
+            (cube8 Y G O)
+        )
+    )
+)
