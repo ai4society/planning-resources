@@ -6,8 +6,15 @@ Sub-directories
 2. 2D-rubik: 2x2
 3. 3D-rubik: 3x3 this is the usual RC that one refers to.
 
-### For Visualisation 
+### Steps for Rubik's Cube Visualisation 
 
-1. Please Download the rubik-cube folder.
-2. Place this folder in the same directory as Fast-Downward and Fast-Forward planners.
+1. Please Clone this repository.
+2. Plese place the Fast-Downward and Fast-Forward planners inside this repository (planning-resources) before running the viz.py.
 > Run python viz.py
+
+### Info regarding viz.py
+
+- At every new instance of the code, the cube is shuffled
+  - The PDDL of the suffled state of the cube is saved in *'3x3/problems/sample_test.pddl'*
+- Runs Fast-Downward and Fast-Forward planner upon the choice of the user on the above mentioned problem file
+- The plan files are stored in *'3x3/plans/'* folder.
