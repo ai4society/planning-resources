@@ -11,7 +11,7 @@ python3 APIPlannerInvoker.py data/domain-hanoi.pddl data/problems/hanoi-3.pddl d
 
 ### For visualization
 
-1. Please generate the required plan by running *APIPlannerInvoker.py
+1. Please generate the required plan by running *APIPlannerInvoker.py*
 2. Run the following command 
 - > python thanoi.py <\number_of_disks> <\plan file>
 
