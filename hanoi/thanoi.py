@@ -1,11 +1,11 @@
 from turtle import *
-
+import sys
 dict_disk_peg = {"d1": " ","d2": " ","d3": " ","d4": " ","d5": " ","d6": " "}
 
-if (len(sys.argv) <= 1) :
+if (len(sys.argv) <= 2) :
     plan_file = 'data/plans/plan-hanoi-3-2.txt'
 else:
-    plan_file = sys.argv[1]
+    plan_file = sys.argv[2]
 
 
 class Disc(Turtle):
@@ -104,7 +104,7 @@ def main():
     t3 = Tower(250)
     # make tower of 6 discs
     pegs = {"peg3": t3,"peg2": t2,"peg1": t1}
-    for i in range(6,0,-1):
+    for i in range(int(sys.argv[1]),0,-1):
         temp_disk = "d" + str(i)
         t1.push(Disc(i))
         dict_disk_peg[temp_disk] = t1[-1]
