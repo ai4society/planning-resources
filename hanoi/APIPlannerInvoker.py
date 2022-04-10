@@ -1,9 +1,9 @@
 import requests, sys
 
 if (len(sys.argv) <= 1) :
-    domain_file = 'examples/hanoi/domain-hanoi.pddl'
-    problem_file = 'examples/hanoi/hanoi-3-2.pddl'
-    output_file = 'examples/hanoi/plan-hanoi-3-2.txt'
+    domain_file = 'data/domain-hanoi.pddl'
+    problem_file = 'data/problems/hanoi-3-2.pddl'
+    output_file = 'data/plans/plan-hanoi-3-2.txt'
 else:
     domain_file = sys.argv[1]
     problem_file = sys.argv[2]
