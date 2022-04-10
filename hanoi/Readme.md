@@ -13,4 +13,4 @@ python3 APIPlannerInvoker.py data/domain-hanoi.pddl data/problems/hanoi-3.pddl d
 
 1. Please generate the required plan by running *APIPlannerInvoker.py
 2. Run the following command 
-- > python thanoi.py <\plan file>
+- > python thanoi.py <plan file>
