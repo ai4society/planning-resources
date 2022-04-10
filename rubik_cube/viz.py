@@ -381,28 +381,39 @@ def write_to_pddl():
     f.close()
 
 
-def fast_downward():
+def fast_downward(path):
     print('----- Running Fast-Downward Planner ------')
-    os.chdir('../downward')
+    
+    problem_path = path+'/problem.pddl'
+    domain_path = path+'/domain.pddl'
+    
+    cwd = os.getcwd()
+    
+    shutil.copy( path_pddl, problem_path )
+    shutil.copy( '../rubiks_cube/3x3/cube_3x3.pddl', domain_path)
+    
+    os.chdir(path)
     print(os.getcwd())
-    print(os.system('./fast-downward.py --plan-file ../rubiks_cube/3x3/plans/sample_test_downward.txt ../rubiks_cube/3x3/cube_3x3.pddl ../rubiks_cube/3x3/problems/sample_test.pddl --search "astar(ff())"'))
-    os.chdir('../rubiks_cube')
+    print(os.system('./fast-downward.py --plan-file plan_file.txt domain.pddl problem.pddl --search "astar(ff())"'))
+    shutil.copy(path+'/plan_file.txt',cwd+'/3x3/plans/sample_test_downward.txt')
+    os.chdir(cwd)
 
-def fast_forward():
-    print('----- Running Fast-Forward Planner ------')
-    os.chdir('../FF')
-    print(os.getcwd())
-    print(os.system('./ff -o ../rubiks_cube/3x3/cube_3x3.pddl -f ../rubiks_cube/3x3/problems/sample_test.pddl > ../rubiks_cube/3x3/plans/sample_test_ff.txt'))
-    os.chdir('../rubiks_cube')
+# def fast_forward():
+#     print('----- Running Fast-Forward Planner ------')
+#     os.chdir('../FF')
+#     print(os.getcwd())
+#     print(os.system('./ff -o ../rubiks_cube/3x3/cube_3x3.pddl -f ../rubiks_cube/3x3/problems/sample_test.pddl > ../rubiks_cube/3x3/plans/sample_test_ff.txt'))
+#     os.chdir('../rubiks_cube')
 
 
 def choose_plan():
-    choice_of_planner = input('Chose the planner to solve the planner (0/1): ')
-
+    # choice_of_planner = input('Chose the planner to solve the planner (0/1): ')
+    choice_of_planner = 0
     if choice_of_planner == 0:
-        fast_downward()
+        planner_path = raw_input("Enter Fast-Downward Path: ")
+        fast_downward(planner_path)
         print('\n ------ Solution Found ------ \n')
-        global plan_actions 
+        # global plan_actions 
         plan_actions = []
         with open('3x3/plans/sample_test_downward.txt', 'r') as plan_file:
             for line in plan_file:
@@ -410,31 +421,30 @@ def choose_plan():
                     break
                 
                 action = re.search('\((.*) \)',line)
-                plan_actions.append(action.group(1).capitalize())   
+                plan_actions.append(action.group(1).capitalize())  
+        return plan_actions 
 
-    if choice_of_planner == 1:
-        fast_forward()
-        print('\n ------ Solution Found ------ \n')
-        global plan_actions 
-        plan_actions = []
-        flag = 0
-        with open('3x3/plans/sample_test_ff.txt', 'r') as plan_file:
-            for line in plan_file:
+    # if choice_of_planner == 1:
+    #     fast_forward()
+    #     print('\n ------ Solution Found ------ \n')
+    #     # global plan_actions 
+    #     plan_actions = []
+    #     flag = 0
+    #     with open('3x3/plans/sample_test_ff.txt', 'r') as plan_file:
+    #         for line in plan_file:
                 
-                if 'step' in line:
-                    flag = 1
+    #             if 'step' in line:
+    #                 flag = 1
                 
-                if 'time spent' in line:
-                    break
+    #             if 'time spent' in line:
+    #                 break
                 
-                if flag == 1:
-                    if ':' not in line:
-                        break
-                    action = line.split(':')[-1][1:-1]
-                    print(str(action.capitalize().capitalize()))
-                    plan_actions.append(action.capitalize().capitalize())  
-                
-
+    #             if flag == 1:
+    #                 if ':' not in line:
+    #                     break
+    #                 action = line.split(':')[-1][1:-1]
+    #                 print(str(action.capitalize().capitalize()))
+    #                 plan_actions.append(action.capitalize().capitalize())  
 
 
 fermer = Button(fenetre, text="Exit", bg='SlateGray1' , bd= 10 , activebackground ='red',command=fenetre.destroy)
@@ -445,7 +455,7 @@ phrase = Label(fond, text="Rubik's cube", fg='black' , bg ='#E4E4E4' , font= "He
 phrase.pack()
 fond.create_window(700, 590, window=phrase)
 
-global actions_list
+global actions_list,plan_actions
 actions_list = [U,Urev,D,Drev,F,Frev,B,Brev,R,Rrev,L,Lrev]
 
 AfficheGraphique3D ()
@@ -454,9 +464,9 @@ random_state()
 to_pddl()
 write_to_pddl()
 
-print('\n ----- Available Planners -----\n')
-print('0: Fast-Downward \n1: Fast-Forward\n')
-choose_plan()
+# print('\n ----- Available Planners -----\n')
+# print('0: Fast-Downward \n1: Fast-Forward\n')
+plan_actions = choose_plan()
 
 th = threading.Thread(target=actions_from_plan)
 th.start()
