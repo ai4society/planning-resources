@@ -9,7 +9,10 @@ Sub-directories
 ### Steps for Rubik's Cube Visualisation 
 
 1. Please Clone this repository.
-2. Plese place the Fast-Downward and Fast-Forward planners inside this repository (planning-resources) before running the viz.py.
+2. Install the Fast-Downward(https://www.fast-downward.org/ObtainingAndRunningFastDownward) planner
+3. Install the required libraries - Tkinter
+> sudo apt-get install python-tk
+4. Run the Visualizer
 > Run python viz.py
 
 ### Info regarding viz.py
