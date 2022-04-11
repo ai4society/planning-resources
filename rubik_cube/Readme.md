@@ -11,9 +11,9 @@ Sub-directories
 1. Please Clone this repository.
 2. Install the [Fast-Downward](https://www.fast-downward.org/ObtainingAndRunningFastDownward) planner
 3. Install the required libraries - Tkinter\
-*For ubuntu*
+- *For ubuntu*
 >sudo apt-get install python-tk\
-*For mac*
+- *For mac*
 >brew install python-tk
 5. Run the Visualizer
 >python viz.py
