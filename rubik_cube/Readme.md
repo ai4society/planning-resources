@@ -15,7 +15,7 @@ Sub-directories
 >sudo apt-get install python-tk\
 - *For mac*
 >brew install python-tk
-5. Run the Visualizer
+4. Run the Visualizer
 >python viz.py
 
 ### Info regarding viz.py
