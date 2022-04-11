@@ -388,14 +388,15 @@ def fast_downward(path):
     domain_path = path+'/domain.pddl'
     
     cwd = os.getcwd()
+    print(cwd)
     
     shutil.copy( path_pddl, problem_path )
-    shutil.copy( '../rubiks_cube/3x3/cube_3x3.pddl', domain_path)
+    shutil.copy( '3x3/cube_3x3.pddl', domain_path)
     
     os.chdir(path)
     print(os.getcwd())
     print(os.system('./fast-downward.py --plan-file plan_file.txt domain.pddl problem.pddl --search "astar(ff())"'))
-    shutil.copy(path+'/plan_file.txt',cwd+'/3x3/plans/sample_test_downward.txt')
+    shutil.copy('plan_file.txt',cwd+'/3x3/plans/sample_test_downward.txt')
     os.chdir(cwd)
 
 # def fast_forward():
