@@ -9,7 +9,7 @@ Sub-directories
 ### Steps for Rubik's Cube Visualisation 
 
 1. Please Clone this repository.
-2. Install the Fast-Downward(https://www.fast-downward.org/ObtainingAndRunningFastDownward) planner
+2. Install the [Fast-Downward](https://www.fast-downward.org/ObtainingAndRunningFastDownward) planner
 3. Install the required libraries - Tkinter
 > sudo apt-get install python-tk
 4. Run the Visualizer
