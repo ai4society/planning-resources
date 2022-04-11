@@ -6,6 +6,13 @@ Sub-directories
 2. 2D-rubik: 2x2
 3. 3D-rubik: 3x3 this is the usual RC that one refers to.
 
+### Environment
+
+1. python 2.7.18
+2. Tkinter 8.6
+3. Fast-Downward Planner
+
+
 ### Steps for Rubik's Cube Visualisation 
 
 1. Please Clone this repository.
