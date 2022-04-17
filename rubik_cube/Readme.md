@@ -30,12 +30,12 @@ Sub-directories
  - *Case 2* - With user defined problem_file
     - The vizualizer is defined from the shuffled state of the cube from the provided problem file
     - Runs Fast-Downward planner for the problem_file and generates a plan_file to solve the cube
-        >python3 viz.py <\problem_file path>
+        >python3 viz.py <\problem_file path>\
         >python3 viz.py 3x3/problems/cube_test.pddl
  - *Case 3* - With user defined problem_file and already generated plan_file by Fast-Forward Planner
     - The vizualizer is defined from the shuffled state of the cube from the provided problem file
     - The shuffled cube is solved from the actions present in the plan_file provided
-        >python3 viz.py <\problem_file path> <\plan_file path>
+        >python3 viz.py <\problem_file path> <\plan_file path>\
         >python3 viz.py 3x3/problems/cube_test.pddl 3x3/plans/cube_test.txt
  
 
