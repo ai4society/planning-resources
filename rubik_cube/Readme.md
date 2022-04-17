@@ -6,11 +6,24 @@ Sub-directories
 2. 2D-rubik: 2x2
 3. 3D-rubik: 3x3 this is the usual RC that one refers to.
 
+### Environment
+
+1. python 2.7.18
+2. Tkinter 8.6
+3. Fast-Downward Planner
+
+
 ### Steps for Rubik's Cube Visualisation 
 
 1. Please Clone this repository.
-2. Plese place the Fast-Downward and Fast-Forward planners inside this repository (planning-resources) before running the viz.py.
-> Run python viz.py
+2. Install the [Fast-Downward](https://www.fast-downward.org/ObtainingAndRunningFastDownward) planner
+3. Install the required libraries - Tkinter\
+- *For ubuntu*
+>sudo apt-get install python-tk\
+- *For mac*
+>brew install python-tk
+4. Run the Visualizer
+>python viz.py
 
 ### Info regarding viz.py
 
