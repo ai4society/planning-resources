@@ -18,16 +18,28 @@ Sub-directories
 1. Please Clone this repository.
 2. Install the [Fast-Downward](https://www.fast-downward.org/ObtainingAndRunningFastDownward) planner
 3. Install the required libraries - Tkinter\
-- *For ubuntu*
+ - *For ubuntu*
     >sudo apt-get install python3-tk\
-- *For mac*
+ - *For mac*
     >brew install python-tk
 4. Run the Visualizer
-    >python viz.py
+ - *Case 1* - With no problem_file and plan_file
+    - At every new instance of the code, the cube is shuffled
+    - The PDDL of the suffled state of the cube is saved in *'3x3/problems/sample_test.pddl'*
+        >python viz.py
+ - *Case 2* - With user defined problem_file
+    - The vizualizer is defined from the shuffled state of the cube from the provided problem file
+    - Runs Fast-Downward planner for the problem_file and generates a plan_file to solve the cube
+        >python viz.py <\problem_file path>
+ - *Case 3* - With user defined problem_file and already generated plan_file by Fast-Forward Planner
+    - The vizualizer is defined from the shuffled state of the cube from the provided problem file
+    - The shuffled cube is solved from the actions present in the plan_file provided
+        >python viz.py <\problem_file path> <\plan_file path>
+ 
 
 ### Info regarding viz.py
 
-- At every new instance of the code, the cube is shuffled
-  - The PDDL of the suffled state of the cube is saved in *'3x3/problems/sample_test.pddl'*
-- Runs Fast-Downward planner on the above mentioned problem file by providing the planner path
+- At every new instance of the code, the cube is shuffled (either randomly or to the initial state defined in the problem_file)
+  - The PDDL of the randomly shuffled state of the cube is saved in *'3x3/problems/sample_test.pddl'*
+- Runs Fast-Downward planner on the above mentioned problem file by taking the planner path from the user
 - The plan files are stored in *'3x3/plans/'* folder.
