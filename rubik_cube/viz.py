@@ -12,10 +12,11 @@ import re
 import sys
 
     
-global path_pddl, problem_file_path, plan_file_path, actions_list,plan_actions
+global path_pddl, problem_file_path, plan_file_path, actions_list, plan_actions, en_var
 
 path_pddl_model = '3x3/problems/model_problem.pddl'
 path_pddl = '3x3/problems/sample_test.pddl'
+
 
 def actions_from_plan():
     
@@ -31,17 +32,16 @@ def actions_from_plan():
     
 def random_state():
     print("--- Shuffling the cube ---")
-    for i in range(50):
+    for i in range(5):
         func = random.choice(actions_list)
         func()
-
 
 def write_to_pddl():
     line_to_append = en.search_init(path_pddl,'(:init') + 2
     with open(path_pddl, 'r') as f:
         lines = f.readlines()
 
-    for var in en.var_to_append:
+    for var in en_var:
         lines.insert(line_to_append, var)
         line_to_append += 1
 
@@ -122,8 +122,9 @@ elif len(sys.argv) == 2:
     th = threading.Thread(target=actions_from_plan)
     th.start()
 else:
-    random_state()
-    en.to_pddl()
+    random_state() 
+    shutil.copy( path_pddl_model, path_pddl )
+    en_var = en.to_pddl()
     write_to_pddl()
     plan_actions = choose_plan()
     th = threading.Thread(target=actions_from_plan)

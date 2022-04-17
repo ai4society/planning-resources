@@ -2,7 +2,6 @@ from tkinter import *
 import cube
 from random import *
 
-
 global cube1,cube2,cube3,cube4,cube5,cube6,cube7,cube8
 global edge12,edge13,edge15,edge24,edge26,edge34,edge37,edge48,edge56,edge57,edge68,edge78
 global var_to_append
@@ -45,7 +44,7 @@ def to_pddl():
     edge57 = '(edge57 '+dict_colors[ cube.CC[0][1][2] ]+ ' ' +dict_colors[ cube.CC[3][1][0] ]+')\n'
 
     var_to_append = [cube1,cube2,cube3,cube4,cube5,cube6,cube7,cube8,edge12,edge13,edge15,edge24,edge26,edge34,edge37,edge48,edge56,edge57,edge68,edge78 ]
-    
+    return var_to_append
 
 def pddl_to_viz(problem_file_path):
     line_to_start = search_init(problem_file_path,'(:init')

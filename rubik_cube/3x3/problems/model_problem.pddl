@@ -1,11 +1,10 @@
 (define
-    (problem sample_test)
+    (problem cube_test3x3)
     (:domain cube3)
     (:objects Y W B G O R)
     (:init
-
-
-
+ 
+        
     )
     (:goal
         (and
