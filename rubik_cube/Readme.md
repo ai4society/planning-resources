@@ -24,7 +24,7 @@ Sub-directories
     >brew install python-tk
 4. Run the Visualizer
  - *Case 1* - With no problem_file and plan_file
-    - Runs problem-*'3x3/problems/cube_test3x3.pddl'* plan-*'3x3/problems/cube_test3x3.txt'*
+    - Runs problem_file - *'3x3/problems/cube_test3x3.pddl'* || plan_file - *'3x3/problems/cube_test3x3.txt'*
         >python3 viz.py
  - *Case 2* - With user defined problem_file
     - Takes in Planner location and Problem file as input arguments
