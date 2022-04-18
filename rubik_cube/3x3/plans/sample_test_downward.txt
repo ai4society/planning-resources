@@ -1,6 +1,2 @@
-(urev )
-(lrev )
-(b )
-(l )
-(r )
-; cost = 5 (unit cost)
+(rrev )
+; cost = 1 (unit cost)

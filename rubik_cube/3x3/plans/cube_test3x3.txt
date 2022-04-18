@@ -11,4 +11,3 @@
 (rrev )
 (u )
 ; cost = 12 (unit cost)
-; cost = 12 (unit cost)
