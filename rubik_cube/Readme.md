@@ -37,10 +37,3 @@ Sub-directories
         >python3 viz.py <\problem_file path> <\plan_file path>\
         >python3 viz.py 3x3/problems/cube_test.pddl 3x3/plans/cube_test.txt
  
-
-### Info regarding viz.py
-
-- At every new instance of the code, the cube is shuffled (either randomly or to the initial state defined in the problem_file)
-  - The PDDL of the randomly shuffled state of the cube is saved in *'3x3/problems/sample_test.pddl'*
-- Runs Fast-Downward planner on the above mentioned problem file by taking the planner path from the user
-- The plan files are stored in *'3x3/plans/'* folder.
