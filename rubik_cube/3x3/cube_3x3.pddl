@@ -24,7 +24,7 @@
         (edge78 ?y ?z)
     )
 
-    (:action U
+    (:action R
     :effect
         (and
             (forall (?x ?y ?z) (when (cube5 ?x ?y ?z) (and (not (cube5 ?x ?y ?z)) (cube7 ?y ?x ?z))))
@@ -40,7 +40,7 @@
         )
     )
 
-    (:action Urev
+    (:action Rrev
     :effect
         (and
             (forall (?x ?y ?z) (when (cube5 ?x ?y ?z) (and (not (cube5 ?x ?y ?z)) (cube6 ?y ?x ?z))))
@@ -56,7 +56,7 @@
         )
     )
 
-    (:action D
+    (:action L
     :effect
         (and
             (forall (?x ?y ?z) (when (cube1 ?x ?y ?z) 
@@ -80,7 +80,7 @@
         )
     )
 
-    (:action Drev
+    (:action Lrev
     :effect
         (and
             (forall (?x ?y ?z) (when (cube1 ?x ?y ?z) (and (not (cube1 ?x ?y ?z)) (cube3 ?y ?x ?z))))
@@ -96,7 +96,7 @@
         )
     )
 
-    (:action R
+    (:action D
     :effect
         (and
             (forall (?x ?y ?z) (when (cube2 ?x ?y ?z) (and (not (cube2 ?x ?y ?z)) (cube6 ?x ?z ?y))))
@@ -112,7 +112,7 @@
         )
     )
 
-    (:action Rrev
+    (:action Drev
     :effect
         (and
             (forall (?x ?y ?z) (when (cube2 ?x ?y ?z) (and (not (cube2 ?x ?y ?z)) (cube4 ?x ?z ?y))))
@@ -127,7 +127,7 @@
         )
     )
 
-    (:action L
+    (:action U
     :effect
         (and
             (forall (?x ?y ?z) (when (cube1 ?x ?y ?z) (and (not (cube1 ?x ?y ?z)) (cube3 ?x ?z ?y))))
@@ -142,7 +142,7 @@
         )
     )
 
-    (:action Lrev
+    (:action Urev
     :effect
         (and
             (forall (?x ?y ?z) (when (cube1 ?x ?y ?z) (and (not (cube1 ?x ?y ?z)) (cube5 ?x ?z ?y))))
